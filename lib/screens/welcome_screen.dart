@@ -2,6 +2,7 @@ import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flash_chat/components/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
@@ -67,14 +68,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 48.0,
             ),
-            AnimatedButton(
+            RoundedButton(
               color: Colors.lightBlueAccent,
               text: 'Log In',
               onPress: () {
                 Navigator.pushNamed(context, LoginScreen.id);
               },
             ),
-            AnimatedButton(
+            RoundedButton(
               color: Colors.blueAccent,
               text: 'Register',
               onPress: () {
@@ -82,34 +83,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               },
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class AnimatedButton extends StatelessWidget {
-  final Color color;
-  final String text;
-  final Function onPress;
-
-  AnimatedButton({this.color, this.text, this.onPress});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Material(
-        elevation: 5.0,
-        color: color,
-        borderRadius: BorderRadius.circular(30.0),
-        child: MaterialButton(
-          onPressed: onPress,
-          minWidth: 200.0,
-          height: 42.0,
-          child: Text(
-            text,
-          ),
         ),
       ),
     );

@@ -19,19 +19,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   void initState() {
     super.initState();
 
-    controller = AnimationController(
-        duration: Duration(seconds: 1), vsync: this, upperBound: 1.0);
-
-//    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
-
-    controller.forward();
-
+    controller =
+        AnimationController(duration: Duration(seconds: 1), vsync: this);
     animation =
         ColorTween(begin: Colors.red, end: Colors.blue).animate(controller);
-
+    controller.forward();
     controller.addListener(() {
       setState(() {});
-      print(animation.value);
     });
   }
 
@@ -73,43 +67,49 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Log In',
-                  ),
-                ),
-              ),
+            AnimatedButton(
+              color: Colors.lightBlueAccent,
+              text: 'Log In',
+              onPress: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: Text(
-                    'Register',
-                  ),
-                ),
-              ),
+            AnimatedButton(
+              color: Colors.blueAccent,
+              text: 'Register',
+              onPress: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class AnimatedButton extends StatelessWidget {
+  final Color color;
+  final String text;
+  final Function onPress;
+
+  AnimatedButton({this.color, this.text, this.onPress});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        elevation: 5.0,
+        color: color,
+        borderRadius: BorderRadius.circular(30.0),
+        child: MaterialButton(
+          onPressed: onPress,
+          minWidth: 200.0,
+          height: 42.0,
+          child: Text(
+            text,
+          ),
         ),
       ),
     );

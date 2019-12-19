@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "338020197289",
+    "firebase_url": "https://flash-chat-eac38.firebaseio.com",
+    "project_id": "flash-chat-eac38",
+    "storage_bucket": "flash-chat-eac38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338020197289:android:1dd67518883ff96ce09ab8",
+        "android_client_info": {
+          "package_name": "co.gofun.tsengyiyao.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338020197289-c7ccqt2giois4naldmt919pdqfsu0g12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD-waXd-aZNNeWZEoMRC-56sBdFg6k8U0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338020197289-c7ccqt2giois4naldmt919pdqfsu0g12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
